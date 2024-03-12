@@ -9,17 +9,20 @@ alla fine stampate in console un messaggio per dire all’utente il risultato de
 
 
 //Chiediamo all`utente di inserire una parola
-const word = prompt('inserisci una parola');
+const word1 = prompt('inserisci una parola');
 
 
 //controlliamo la parola inserita
-console.log(word);
+console.log(word1);
 
-//dichiariamo una variabile da riempire con la parola al contrario scandita dal ciclo presente nella funzione
-let reverseWord = '';
+
+
 
 //costruiamo la funzione per comparare le parole e capire se sono palindrome
-function isPalindroma(str,str2){
+function isPalindroma(word){
+    //dichiariamo una variabile da riempire con la parola al contrario scandita dal ciclo presente nella funzione
+    let reverseWord = '';
+
     //formiamo un ciclo che parte dalla lunghezza della parola e andiamo a decrementare l'indice a ogni
     //interazione
     for(let i = word.length -1 ; i >= 0; i--){
@@ -35,24 +38,38 @@ function isPalindroma(str,str2){
 
         //console.log(reverseWord)
 
-        
 
     }
     //controlliamo la stringa ottenuta
-    console.log(reverseWord)
+    //console.log(reverseWord);
+    
 
+    //Tentativo di utilizzo di un'altro tipo di ragionamento che prevede di confrontare la prima e l'ultima lettera, la seconda con la penultima e cosi via
+    /*
+    for( let i = 0; i < word.length ; i++){
+        //console.log(word[i])
+
+        console.log(word[i], word[word.length])
+
+    }
+    */
 
     //instauriamo la condizione SE la parola inserita e' uguale a quella ottenuta allora e' palindroma
     if(word === reverseWord){
-        console.log('e` palindroma')
+        
         return true;
         //ALTRIMENTI non e' palindroma
     }else{
-        console.log('non e` palindroma');
+        
         return false;
     }
 }
 
 
 //stampiamo in console invocando la funzione la funzione per controllarne il funzionamento
-console.log(isPalindroma(word,reverseWord))
+const risultato = isPalindroma(word1);
+if (risultato === true) {
+    console.log('e` palindroma');
+} else {
+    console.log('non e` palindroma');
+}
